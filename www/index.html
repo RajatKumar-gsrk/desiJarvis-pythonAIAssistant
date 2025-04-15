@@ -1,50 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>desiJarvis</title>
+
+    <link rel="shortcut icon" href="assets/img/nin.ico" type="image/x-icon">
     <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7"
+      crossorigin="anonymous"
+    />
+    <!-- icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
+    />
     <!-- /bootstrap -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
 
     <!-- textilatte -->
-     <link rel="stylesheet" href="/assets/animate.css">
-     <!-- textilatte -->
-</head>
-<body>
-    <section id = "oval" class="mb-4">
-        <div class="row">
-            <!-- row with three cols one for animation one for replies and one more -->
-            <div class="col-md-1 col1"></div>
-            <div class="col-md-10 col2">
+    <link rel="stylesheet" href="assets/animate.css" />
+    <!-- textilatte -->
+  </head>
+  <body>
+    <div class="container">
+        <section id="oval" class="mb-4" hidden>
+            <div class="row">
+              <!-- row with three cols one for animation one for replies and one more -->
+              <div class="col-md-1 col1"></div>
+              <div class="col-md-10 col2">
                 <div class="square">
-                    <div class="circle circle1"></div>
-                    <div class="circle circle2"></div>
-                    <div class="circle circle3"></div>
-                    <div class="circle circle4">
-                        <div id="particles-js"></div>
-                    </div>
+                  <div class="circle circle1"></div>
+                  <div class="circle circle2"></div>
+                  <div class="circle circle3"></div>
+                  <div class="circle circle4">
+                    <div id="particles-js"></div>
+                  </div>
                 </div>
                 <h3 class="ask_question">Ask Me Anything!</h3>
+                <div class="col-md-12">
+                  <div class="text-center">
+                    <div id="TextInput" class="d-flex">
+                      <input
+                        type="text"
+                        name="chatBox"
+                        id="chatBox"
+                        placeholder="type here"
+                      />
+                      <div class="icons">
+                        <button id="micBtn" class="glow-on-hover">
+                          <i class="bi bi-mic-fill"></i>
+                        </button>
+                        <button id="chatBtn" class="glow-on-hover">
+                          <i class="bi bi-chat-left-dots"></i>
+                        </button>
+                        <button id="settingBtn" class="glow-on-hover">
+                          <i class="bi bi-gear-fill"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-1 col3"></div>
             </div>
-            <div class="col-md-1 col3"></div>
-        </div>
+          </section>
 
-    </section>
-    
+          <secion id="siriWave" class="mb-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center align-items-center flex-column" style="height: 100vh;">
+                                <p class="text-start text-light mb-4 siriMsg">
+                                    hellow buddy!
+                                </p>
+                                <div id="siri-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </secion>
+    </div>
 
     <!-- jquery -->
     <script
-    src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-    crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
     <!-- jquery -->
 
     <!-- bootstrap -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+      crossorigin="anonymous"
+    ></script>
     <!-- /bootstrap -->
+
+    <!-- siri -->
+    <script src="https://unpkg.com/siriwave/dist/siriwave.umd.min.js"></script>
+    <script>
+        var siriWave = new SiriWave({
+          container: document.getElementById("siri-container"),
+          width: 640,
+          height: 200,
+          style: "ios9",
+          speed: 0.1,
+          amplitude: 2,
+          autostart: true,
+        });
+      </script>
+    <!-- siri -->
 
     <!-- particles.js -->
     <script src="assets/particles.js"></script>
@@ -52,15 +122,15 @@
     <!-- particles.js -->
 
     <!-- textilate.js -->
-     <script src="assets/jquery.lettering.js"></script>
-     <script src="assets/jquery.textillate.js"></script>
+    <script src="assets/jquery.lettering.js"></script>
+    <script src="assets/jquery.textillate.js"></script>
     <!-- textilate -->
 
     <!-- eel -->
-    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="eel.js"></script>
     <!-- eel -->
 
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

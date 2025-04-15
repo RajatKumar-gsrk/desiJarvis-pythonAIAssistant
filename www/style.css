@@ -1,3 +1,5 @@
+/* 1 */
+
 *{
     margin: 0;
     padding: 0;
@@ -104,4 +106,152 @@ body{
     background-size: 200% ;
 }
 
+/* 2 */
+.text-center{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
 
+#TextInput{
+    width: 80%;
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#chatBox{
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-radius: 1000px;
+    box-shadow: 0 0 10px rgb(17, 208, 4);
+    padding: 0 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    position: relative;
+    caret-color: rgb(17, 208, 4);
+}
+
+#chatBox:focus{
+    outline: none;
+}
+
+.icons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#micBtn{
+    background-color: transparent;
+    color: rgb(17, 208, 4);
+    border: none;
+    font-size: 2rem;
+    position: relative;
+}
+
+#micBtn:hover{
+    color: white;
+    padding: 0 5px;
+}
+
+#micBtn::after{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 90%;
+    border-radius: 5px;
+    background-size: 200%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#micBtn:hover::after{
+    width: 100%;
+    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+    background-size: 200%;
+    animation: moveGradient 2.5s linear infinite;
+}
+
+#chatBtn{
+    background-color: transparent;
+    color: rgb(17, 208, 4);
+    border: none;
+    font-size: 2rem;
+    position: relative;
+}
+
+#chatBtn:hover{
+    color: white;
+    padding: 0 5px;
+}
+
+#chatBtn::after{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 90%;
+    border-radius: 5px;
+    background-size: 200%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    
+}
+
+#chatBtn:hover::after{
+    width: 100%;
+    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+    background-size: 200%;
+    animation: moveGradient 2.5s linear infinite;
+}
+
+#settingBtn{
+    background-color: transparent;
+    color: rgb(17, 208, 4);
+    border: none;
+    font-size: 2rem;
+    position: relative;
+}
+
+#settingBtn:hover{
+    padding: 0 5px;
+    color: white;
+}
+
+#settingBtn::after{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 90%;
+    border-radius: 5px;
+    background-size: 200%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    
+}
+
+#settingBtn:hover::after{
+    width: 100%;
+    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+    background-size: 200%;
+    -webkit-text-fill-color: transparent;
+    animation: moveGradient 2.5s linear infinite;
+}
+
+@keyframes moveGradient {
+    to{
+        background-position: 200%;
+    }
+}
+
+.siriMsg{
+    font-size: 1.2rem;
+}
