@@ -49,8 +49,12 @@ def takeCommand():
 # takeCommand()
 
 @eel.expose
-def takeAllCommand():
-    query = takeCommand()
+def takeAllCommand(query = ""):
+    if query == "":
+        query = takeCommand()
+    else:
+        print(f"User query : {query}")
+        eel.displayMessage(f"{query}")
 
     if "message" in query:
         from engine.features import messageContact

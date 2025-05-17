@@ -22,8 +22,11 @@ cursor = sqlite3.Cursor(connection)
 # with open('contacts.csv', 'r') as csvfile:
 #     csvreader = csv.reader(csvfile)
 #     for row in csvreader:
-#         selected_data = [row[i] for i in (0, 18)]
+#         selected_data = [row[i].lower() for i in (0, 18)]
 #         queryContacts = "INSERT INTO contact_info VALUES(null, ?, ?)"
 #         cursor.execute(queryContacts, tuple(selected_data))
 
+
+#cursor.execute("INSERT INTO contact_info VALUES(null, \"home\", 8968217951)")
+#cursor.execute("DELETE FROM contact_info WHERE id = 10")
 connection.commit()

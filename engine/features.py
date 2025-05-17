@@ -7,6 +7,7 @@ from engine.command import *
 import os
 import pywhatkit
 import sqlite3
+import pyautogui
 
 connection = sqlite3.connect("desijarvis.db")
 cursor = sqlite3.Cursor(connection)
@@ -82,4 +83,70 @@ class NotFoundError(Exception):
 
     def __str__(self):
         return f"CustomError: {self.message}"
+    
 
+def messageContact(query):
+    query = query.replace(ASSISTANT_NAME, "").lower()
+    query = query.replace('message', '')
+    query = query.replace('whatsapp', '')
+    query = query.replace('on', '')
+
+    contact_name = query.strip()
+
+    try:
+        cursor.execute(
+            "SELECT contact from contact_info WHERE name IN (?)",(contact_name,)
+        )
+        result = cursor.fetchall()
+
+        if len(result) != 0:
+            speak("getting ready to message")
+            # message rom here os.startfile(result[0][0])
+            speak("What message would you like to send?")
+            message = takeCommand()
+            number = "+91" + result[0][0]
+
+            pywhatkit.sendwhatmsg_instantly(number, message, 15)
+            return
+        elif len(result) == 0:
+            eel.displayMessage("Error contact not found")
+            raise NotFoundError("Something is wrong with command")
+    except:
+        speak("Something went wrong")
+
+
+def callContact(query):
+    query = query.replace(ASSISTANT_NAME, "").lower()
+    query = query.replace('call', '')
+    query = query.replace('whatsapp', '')
+    query = query.replace('on', '')
+
+    contact_name = query.strip()
+
+    try:
+        cursor.execute(
+            "SELECT contact from contact_info WHERE name IN (?)",(contact_name,)
+        )
+        result = cursor.fetchall()
+
+        if len(result) != 0:
+            speak("getting ready to call")
+            # message rom here os.startfile(result[0][0])
+            os.system("start whatsapp://")
+            time.sleep(5)
+            pyautogui.typewrite(result[0][0])
+            time.sleep(1)
+            pyautogui.hotkey("tab")
+            pyautogui.hotkey("enter")
+
+            for _ in range(0, 11):
+                pyautogui.hotkey('tab')
+            
+            pyautogui.hotkey("enter")
+            print('call done')
+            return
+        elif len(result) == 0:
+            eel.displayMessage("Error contact not found")
+            raise NotFoundError("Something is wrong with command")
+    except:
+        speak("Something went wrong")

@@ -1,12 +1,19 @@
 /* 1 */
 
+:root{
+    --accent-color : white;
+}
+
 *{
     margin: 0;
     padding: 0;
+    
 }
 
 body{
-    background-color: black;
+    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+    background-size: 200%;
+    animation: moveGradient 2.5s linear infinite;
     overflow: hidden;
 }
 
@@ -39,7 +46,7 @@ body{
     height: 100%;
     background-color: red;
     position: absolute;
-    background: radial-gradient(black 40%, rgb(17, 208, 4));
+    background: radial-gradient(black 40%, var(--accent-color));
     transition: 1s;
 }
 
@@ -102,7 +109,7 @@ body{
 }
 
 .ask_question{
-    color:  rgb(61, 145, 58);
+    color:  var(--accent-color);
     background-size: 200% ;
 }
 
@@ -126,14 +133,14 @@ body{
     background-color: transparent;
     border: none;
     border-radius: 1000px;
-    box-shadow: 0 0 10px rgb(17, 208, 4);
+    box-shadow: 0 0 10px var(--accent-color);
     padding: 0 20px;
     font-size: 1.5rem;
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     color: white;
     position: relative;
-    caret-color: rgb(17, 208, 4);
+    caret-color: var(--accent-color);
 }
 
 #chatBox:focus{
@@ -147,9 +154,39 @@ body{
     gap: 1rem;
 }
 
+#sendBtn{
+    background-color: transparent;
+    color: var(--accent-color);
+    border: none;
+    font-size: 1.5rem;
+    position: relative;
+}
+
+#sendBtn:hover{
+    color: white;
+    padding: 0 5px;
+}
+
+#sendBtn::after{
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 90%;
+    border-radius: 5px;
+    background-size: 200%;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+#sendBtn:hover::after{
+    width: 100%;
+    background-color: black;
+}
+
 #micBtn{
     background-color: transparent;
-    color: rgb(17, 208, 4);
+    color: var(--accent-color);
     border: none;
     font-size: 1.5rem;
     position: relative;
@@ -174,14 +211,14 @@ body{
 
 #micBtn:hover::after{
     width: 100%;
-    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
-    background-size: 200%;
-    animation: moveGradient 2.5s linear infinite;
+    background-color: black;
 }
+
+
 
 #chatBtn{
     background-color: transparent;
-    color: rgb(17, 208, 4);
+    color: var(--accent-color);
     border: none;
     font-size: 1.5rem;
     position: relative;
@@ -207,14 +244,12 @@ body{
 
 #chatBtn:hover::after{
     width: 100%;
-    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
-    background-size: 200%;
-    animation: moveGradient 2.5s linear infinite;
+    background-color: black;
 }
 
 #settingBtn{
     background-color: transparent;
-    color: rgb(17, 208, 4);
+    color: var(--accent-color);
     border: none;
     font-size: 1.5rem;
     position: relative;
@@ -231,7 +266,6 @@ body{
     width: 0%;
     height: 90%;
     border-radius: 5px;
-    background-size: 200%;
     bottom: 0;
     left: 0;
     z-index: -1;
@@ -240,10 +274,7 @@ body{
 
 #settingBtn:hover::after{
     width: 100%;
-    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
-    background-size: 200%;
-    -webkit-text-fill-color: transparent;
-    animation: moveGradient 2.5s linear infinite;
+    background-color: black;
 }
 
 @keyframes moveGradient {
