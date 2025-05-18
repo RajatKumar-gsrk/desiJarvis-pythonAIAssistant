@@ -38,12 +38,14 @@ def takeCommand():
         time.sleep(2)
         
         print(f"User said : {query}")
-        eel.displayMessage(f"{query}")
+        eel.displayMessage(query)
     except Exception as e:
         print(e)
         eel.displayMessage("Error! please repeat again")
         return "Error! please repeat again"
+    
 
+    eel.userText("user said "+query)
     return query.lower()
 
 # takeCommand()
@@ -55,6 +57,8 @@ def takeAllCommand(query = ""):
     else:
         print(f"User query : {query}")
         eel.displayMessage(f"{query}")
+        eel.userText(query)
+        # eel.assistantText(query)
 
     if "message" in query:
         from engine.features import messageContact

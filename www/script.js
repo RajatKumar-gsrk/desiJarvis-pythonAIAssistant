@@ -50,8 +50,8 @@ function playAssistant(message){
 		eel.takeAllCommand(message)
 
 		$("#chatBox").val("")
-		$("#micBtn").attr("hidden", true)
-		$("#sendBtn").attr("hidden", false)
+		$("#micBtn").attr("hidden", false)
+		$("#sendBtn").attr("hidden", true)
 	}
 }
 

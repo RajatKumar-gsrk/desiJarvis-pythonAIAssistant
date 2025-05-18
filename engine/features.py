@@ -34,6 +34,8 @@ def openCommand(query):
             if len(result) != 0:
                 speak("opening "+query)
                 os.startfile(result[0][0])
+                eel.displayMessage("opening "+query)
+                eel.assistantText("opening "+query)
                 return
             elif len(result) == 0:
                 cursor.execute(
@@ -42,11 +44,15 @@ def openCommand(query):
                 result = cursor.fetchall()
                 if len(result) != 0:
                     speak("opening "+query)
+                    eel.displayMessage("opening "+query)
+                    eel.assistantText("opening "+query)
                     webbrowser.open(result[0][0])
                     return
                 else:
                     if query != "":
                         speak("opening "+query)
+                        eel.displayMessage("opening "+query)
+                        eel.assistantText("opening "+query)
                         os.system("start "+query)
                     else:
                         print("Error command not found")
@@ -62,6 +68,8 @@ def openYoutube(query):
     query = extractKeyword(query)
     if query != "":
         speak('playing '+query+' on youtube')
+        eel.displayMessage('playing '+query+' on youtube')
+        eel.assistantText('playing '+query+' on youtube')
         pywhatkit.playonyt(query)
     else:
         speak("Error please repeat")

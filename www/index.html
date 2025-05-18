@@ -57,7 +57,7 @@
                         <button id="micBtn" class="glow-on-hover">
                           <i class="bi bi-mic-fill"></i>
                         </button>
-                        <button id="chatBtn" class="glow-on-hover">
+                        <button id="chatBtn" class="glow-on-hover" data-bs-toggle="offcanvas" data-bs-target="#offcanvasLeft" aria-controls="offcanvasLeft">
                           <i class="bi bi-chat-left-dots"></i>
                         </button>
                         <button id="settingBtn" class="glow-on-hover">
@@ -86,6 +86,14 @@
                 </div>
             </div>
           </secion>
+    </div>
+
+    <div class="chatHistory offcanvas offcanvas-start" tabindex="-1" id="offcanvasLeft" aria-labelledby="offcanvasLeftLabel">
+      <div class="chatHistoryHeader offcanvas-header">
+        <h5 class="chatHistoryTitle offcanvas-title" id="offcanvasLeftLabel">Chat History</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div id = "chatHistoryBody" class=" offcanvas-body"></div>
     </div>
 
     <!-- jquery -->
