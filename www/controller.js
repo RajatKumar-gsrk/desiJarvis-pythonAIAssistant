@@ -1,3 +1,5 @@
+
+
 $(document).ready(function (){
     eel.expose(displayMessage);
     function displayMessage(msg){
@@ -42,4 +44,6 @@ $(document).ready(function (){
             chatHistoryBody.scrollTop = chatHistoryBody.scrollHeight;
         }
     }}
+
+    
 });

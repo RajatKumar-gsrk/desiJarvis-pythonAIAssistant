@@ -8,6 +8,7 @@ import os
 import pywhatkit
 import sqlite3
 import pyautogui
+import asyncio
 
 connection = sqlite3.connect("desijarvis.db")
 cursor = sqlite3.Cursor(connection)
@@ -109,18 +110,23 @@ def messageContact(query):
 
         if len(result) != 0:
             speak("getting ready to message")
+            eel.assistantText("getting ready to message")
             # message rom here os.startfile(result[0][0])
             speak("What message would you like to send?")
+            eel.assistantText("What message would you like to send?")
             message = takeCommand()
+            eel.userText(message)
             number = "+91" + result[0][0]
 
             pywhatkit.sendwhatmsg_instantly(number, message, 15)
             return
         elif len(result) == 0:
             eel.displayMessage("Error contact not found")
+            eel.assistantText("Error contact not found")
             raise NotFoundError("Something is wrong with command")
     except:
         speak("Something went wrong")
+        eel.assistantText("Something went wrong")
 
 
 def callContact(query):
@@ -139,6 +145,7 @@ def callContact(query):
 
         if len(result) != 0:
             speak("getting ready to call")
+            eel.assistantText("getting ready to call")
             # message rom here os.startfile(result[0][0])
             os.system("start whatsapp://")
             time.sleep(5)
@@ -152,9 +159,15 @@ def callContact(query):
             
             pyautogui.hotkey("enter")
             print('call done')
+            eel.assistantText("call finished")
             return
         elif len(result) == 0:
             eel.displayMessage("Error contact not found")
+            eel.assistantText("Error contact not found")
             raise NotFoundError("Something is wrong with command")
     except:
         speak("Something went wrong")
+        eel.assistantText("Something went wrong")
+
+
+

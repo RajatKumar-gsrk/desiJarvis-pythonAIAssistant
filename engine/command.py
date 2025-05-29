@@ -57,8 +57,8 @@ def takeAllCommand(query = ""):
     else:
         print(f"User query : {query}")
         eel.displayMessage(f"{query}")
-        eel.userText(query)
-        # eel.assistantText(query)
+
+    eel.userText(query)
 
     if "message" in query:
         from engine.features import messageContact
@@ -76,6 +76,17 @@ def takeAllCommand(query = ""):
         from engine.features import openYoutube
         openYoutube(query)
 
+    else:
+        from engine.gemini_api import generateAiResponse
+        response = generateAiResponse(query)
+        response.replace("*", "")
+        eel.assistantText(response)
+        eel.displayMessage(response)
+        speak(response)
+
+
     time.sleep(3)
     eel.displayMessageReset()
     eel.displayOval()
+
+    print("the end")
