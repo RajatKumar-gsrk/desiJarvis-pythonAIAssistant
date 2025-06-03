@@ -27,6 +27,6 @@ cursor = sqlite3.Cursor(connection)
 #         cursor.execute(queryContacts, tuple(selected_data))
 
 
-#cursor.execute("INSERT INTO contact_info VALUES(null, \"home\", 8968217951)")
+#cursor.execute("INSERT INTO contact_info VALUES(null, \"home\", number)")
 #cursor.execute("DELETE FROM contact_info WHERE id = 10")
 connection.commit()
