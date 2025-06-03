@@ -301,8 +301,7 @@ body{
     width: auto;
     color: #00d4ff;
     font-weight: bold;
-    border: 2px solid white;
-    border-radius: 500px;
+       border: 2px solid white;
 }
 
 .assistantMsg{
@@ -311,5 +310,4 @@ body{
     color: rgb(100, 254, 94);
     font-weight: bold;
     border: 2px solid white;
-    border-radius: 500px;
 }

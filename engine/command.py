@@ -79,7 +79,7 @@ def takeAllCommand(query = ""):
     else:
         from engine.gemini_api import generateAiResponse
         response = generateAiResponse(query)
-        response.replace("*", "")
+        response=response.replace("*", "")
         eel.assistantText(response)
         eel.displayMessage(response)
         speak(response)
